@@ -1,4 +1,4 @@
-carrie@ubuntu:/debugging$ cat 1-main.c
+
 #include <stdio.h>
 
 /**
@@ -23,4 +23,3 @@ int main(void)
 
         return (0);
 }
-carrie@ubuntu:/debugging
