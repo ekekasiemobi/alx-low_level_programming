@@ -10,17 +10,17 @@ int main(void)
 {
     int r;
 
-    r = _pow_recursion(1, 10);
+    r = _sqrt_recursion(1);
     printf("%d\n", r);
-    r = _pow_recursion(1024, 0);
+    r = _sqrt_recursion(1024);
     printf("%d\n", r);
-    r = _pow_recursion(2, 16);
+    r = _sqrt_recursion(16);
     printf("%d\n", r);
-    r = _pow_recursion(5, 2);
+    r = _sqrt_recursion(17);
     printf("%d\n", r);
-    r = _pow_recursion(5, -2);
+    r = _sqrt_recursion(25);
     printf("%d\n", r);
-    r = _pow_recursion(-5, 3);
+    r = _sqrt_recursion(-1);
     printf("%d\n", r);
     return (0);
 }
