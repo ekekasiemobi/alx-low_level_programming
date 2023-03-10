@@ -1,1 +1,1 @@
-My first readme
+static library: Indexing an archive
