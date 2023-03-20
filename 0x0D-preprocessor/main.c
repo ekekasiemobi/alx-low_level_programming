@@ -1,6 +1,6 @@
-#include "1-pi.h"
-#include "1-pi.h"
 #include <stdio.h>
+#include "3-function_like_macro.h"
+#include "3-function_like_macro.h"
 
 /**
  * main - check the code
@@ -9,11 +9,11 @@
  */
 int main(void)
 {
-    float a;
-    float r;
+    int i;
+    int j;
 
-    r = 98;
-    a = PI * r * r;
-    printf("%.3f\n", a);
+    i = ABS(-98) * 10;
+    j = ABS(98) * 10;
+    printf("%d, %d\n", i, j);
     return (0);
 }
