@@ -10,27 +10,26 @@ unsigned int binary_to_uint(const char *b)
 
 	unsigned int output = 0;
 
-	if (b == 0)
+	if (b == NULL)
 	{
 		return (0);
 	}
-	while (*b)
+	while (b[i])
 	{
-		if (*b == '0')
+		if (b[i] == '0')
 		{
-			output = output << 1;
+			output =  ((2 * output) + (b[i] - '0'));
 		}
-		else if (*b == '1')
+		else if (b[i] == '1')
 		{
-			output = (output << 1) | 1;
+			 output =  ((2 * output) + (b[i] - '0'));
 
 		}
 		else
 		{
 			return (0);
 		}
-		b++;
-		output++;
+		i++;
 	}
 
 	return (output);
