@@ -9,23 +9,25 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int file, file_open, file_write;
+	int i, file_open, file_write;
 
 	if (filename == NULL)
 	{
-		return (-);
+		return (-1);
 	}
 
-	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	file_open = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
-	if (file == -1)
+	if (file_open == -1)
 	{
 		return (-1);
 	}
 
 	if (text_content != NULL)
 	{
-		file_write = write(file, text_content, _strlen(text_content));
+		for (i = 0; text_content[i]; i++);
+
+		file_write = write(file_open, text_content, i);
 
 		if (file_write == -1)
 		{
@@ -33,14 +35,14 @@ int create_file(const char *filename, char *text_content)
 			return (-1);
 		}
 
-		else 
+		else
 		{
-			close(file_open)
+			close(file_open);
 			return (1);
 		}
 	}
 
-	else 
+	else
 	{
 		close(file_open);
 		return (-1);
