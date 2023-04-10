@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * clear_bit - gets the bit of the the index
- * @n:  this is the bit
- * @index: where the bit is taken
- * Return: return -1 unsuccesful, successful return 1
+ * clear_bit - gets the bit of the index to be set to zero
+ * @n:  this is the bit to be set to zero
+ * @index: where the bit is taken and set to zero
+ * Return: return -1 when it fails, return 1 when its successful
  */
 
 int clear_bit(unsigned long int *n, unsigned int index)
@@ -16,7 +16,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 	else
 	{
-		*n &= ~( 1 << index);
+		*n &= ~(1 << index);
 
 		return (1);
 	}
