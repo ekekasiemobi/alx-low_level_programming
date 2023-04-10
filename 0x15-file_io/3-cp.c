@@ -1,51 +1,66 @@
 #include "main.h"
-
 /**
-* create_file - Create a function tha creates a file.
-* @filename: file to create.
-* @text_content: info to write into the file.
-* Return: 1 on success, -1 on failure
-*/
-
-int create_file(const char *filename, char *text_content)
+ * main - copy info from file_from to file_to.
+ * @ac: number of arguments
+ * @av: array of arguments
+ * Return: Always 0.
+ */
+int main(int argc, char **argv)
 {
-	int i, file_open, file_write;
+        int file_from, file_to;
+        ssize_t file_read = 1024, file_write,file_close;
+        char content[1024];
 
-	if (filename == NULL)
+
+        if (argc != 3)
+        {
+                dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+                exit(97);
+        }
+
+        file_from = open(argv[1], O_RDONLY);
+        if (file_from == -1)
+        {
+                dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+                exit(98);
+        }
+
+        file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+        if (file_to == -1)
+        {
+                dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+                exit(99);
+        }
+
+	if (file_read == 1024)
 	{
-		return (-1);
-	}
+		file_read = read(file_from, content, 1024);
+		file_write = write(file_to, content, file_read);
 
-	file_open = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-
-	if (file_open == -1)
-	{
-		return (-1);
-	}
-
-	if (text_content != NULL)
-	{
-		for (i = 0; text_content[i]; i++);
-
-		file_write = write(file_open, text_content, i);
-
+		if (file_read == -1)
+		{ 
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98); 
+		}
 		if (file_write == -1)
-		{
-			close(file_open);
-			return (-1);
-		}
-
-		else
-		{
-			close(file_open);
-			return (1);
+		{ 
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99); 
 		}
 	}
 
-	else
-	{
-		close(file_open);
-		return (-1);
+	file_close = close(file_from);
+	if (file_close == -1)
+	{ 
+		dprintf(STDERR_FILENO, "Error: Can't close fd  %d\n", file_from);
+		exit(100); 
 	}
-
+	file_close = close(file_to);
+	if (file_close == -1)
+	{ 
+		dprintf(STDERR_FILENO, "Error: Can't close fd  %d\n", file_to);
+		exit(100); 
+	}
+	
+	return (0);
 }
