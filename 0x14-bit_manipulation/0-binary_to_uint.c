@@ -17,18 +17,15 @@ unsigned int binary_to_uint(const char *b)
 
 	while (b[i])
 	{
-		if (b[i] == '0')
+		if (b[i] == '0' || b[i] == '1')
 		{
 			output =  ((2 * output) + (b[i] - '0'));
-		}
-		else if (b[i] == '1')
-		{
-			 output =  ((2 * output) + (b[i] - '0'));
 		}
 		else
 		{
 			return (0);
 		}
+
 		i++;
 	}
 
