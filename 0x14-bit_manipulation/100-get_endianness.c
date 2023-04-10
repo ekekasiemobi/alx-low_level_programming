@@ -12,8 +12,5 @@ int get_endianness(void)
 	{
 		return (1);
 	}
-	if (*endian == 0)
-	{
-		return (0);
-	}
+	return (0);
 }
