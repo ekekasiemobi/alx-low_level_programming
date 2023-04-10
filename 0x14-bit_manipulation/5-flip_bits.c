@@ -1,25 +1,20 @@
 #include "main.h"
 
 /**
- * flip_bits - Counts the number of bits needed to be
- *             flipped to get from one number to another.
- * @n: The number.
+ * flip_bits - Counts the number of bits needed to be flipped
+ * @n: The number to be flipped.
  * @m: The number to flip n to.
- *
- * Return: The necessary number of bits to flip to get from n to m.
+ * Return: The number of bits to flip to convert n to m.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int xor = n ^ m;
-	unsigned int count, i = 0;
-	
-	for (i = 0; i < sizeof(n) * 8; i++)
-	
+	unsigned int count = 0;
+
+	while (xor != 0  && xor > 0)
 	{
-        	if ((xor >> i) & 1)
-		{
-			count++;
-		}
+		count += (xor & 1);
+		xor >>= 1;
 	}
 
 	return (count);
