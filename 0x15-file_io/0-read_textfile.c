@@ -1,9 +1,9 @@
 #include "main.h"
 /**
 * read_textfile - check the code for Holberton School students.
-* @filename: file to read and write
+* @filename:  the file to read and write
 * @letters: number of letters to read and write.
-* Return: letters printed
+* Return: returns letters written
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -31,13 +31,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	else if (file_read == -1)
-	{
-		free(buffer);
-		return (0);
-	}
-
-	else if (file_write == -1)
+	else if (file_read == -1 || file_write == -1)
 	{
 		free(buffer);
 		return (0);
