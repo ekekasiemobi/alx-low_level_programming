@@ -42,7 +42,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 }
 
 /**
- * validate_elf - helper to check if input is valid elf file
+ * verify_elf - helper to check if input is valid elf file
  * @e_ident: pointer to char array
  */
 
@@ -53,9 +53,9 @@ void verify_elf(unsigned char *e_ident)
 	for (i = 0; i < 4; i++)
 	{
 		if (e_ident[i] == 0x7f && e_ident[i] == 'E' &&
-            		e_ident[i] == 'L' && e_ident[i] == 'F') 
+			e_ident[i] == 'L' && e_ident[i] == 'F')
 		{
-    			printf("ELF Header:\n");
+			printf("ELF Header:\n");
 		}
 		else
 		{
@@ -66,7 +66,7 @@ void verify_elf(unsigned char *e_ident)
 }
 
 /**
- * print_magic - print the ELF magic numbers
+ * magic_value - print the ELF magic numbers
  * @e_ident: pointer to an array containing the ELF magic numbers
  */
 void magic_value(unsigned char *e_ident)
@@ -77,7 +77,7 @@ void magic_value(unsigned char *e_ident)
 
 	for (i = 0; i < EI_NIDENT; i++)
 	{
-      		printf("%02x ", e_ident[i]);
+		printf("%02x ", e_ident[i]);
 		printf("\n");
 	}
 		printf(" ");
