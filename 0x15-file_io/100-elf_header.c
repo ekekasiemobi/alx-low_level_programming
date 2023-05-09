@@ -12,9 +12,9 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	Elf64_Ehdr *header;
 
 	header = malloc(sizeof(Elf64_Ehdr));
-	if (!header)
+	if (header == NULL)
 	{
-		dprintf(STDERR_FILENO, "Malloc error\n");
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
 	if (argc != 2)
@@ -38,6 +38,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	verify_elf(header->e_ident);
 	magic_value(header->e_ident);
+	class_value(header->e_ident);
 
 	free(header);
 	c = close(fd);
@@ -86,5 +87,32 @@ void magic_value(unsigned char *e_ident)
 		printf("\n");
 	}
 		printf(" ");
+}
+
+/**
+ * class_value - print ELF's class
+ * @e_ident: pointer to char array
+ */
+
+void class_value(unsigned char *e_ident)
+{
+	printf("  Class:                             ");
+	
+	if (e_ident[EI_CLASS] == ELFCLASSNONE)
+	{
+		printf("This class is invalid\n");
+	}
+	else if (e_ident[EI_CLASS] == ELFCLASS32)
+	{
+		printf("ELF32\n");
+	}
+	else if (e_ident[EI_CLASS] == ELFCLASS64)
+	{
+		printf("ELF64\n");
+	}
+	else
+	{
+		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+	}
 }
 
