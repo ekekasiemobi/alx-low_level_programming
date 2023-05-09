@@ -19,7 +19,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 	if (argc != 2)
 	{
-    		dprintf(STDERR_FILENO, "Usage: %s file\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: %s file\n", argv[0]);
 		exit(1);
 	}
 	fd = open(argv[1], O_RDONLY);
@@ -97,7 +97,7 @@ void magic_value(unsigned char *e_ident)
 void class_value(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
-	
+
 	if (e_ident[EI_CLASS] == ELFCLASSNONE)
 	{
 		printf("This class is invalid\n");
