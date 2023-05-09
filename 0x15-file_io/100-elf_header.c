@@ -17,6 +17,11 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Malloc error\n");
 		exit(98);
 	}
+	if (argc != 2)
+	{
+    		dprintf(STDERR_FILENO, "Usage: %s file\n", argv[0]);
+		exit(1);
+	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
