@@ -1,11 +1,11 @@
 #include "lists.h"
 /**
- *listint_len - prints the total number of nodes
+ *dlistint_len - prints the total number of nodes
  *@h: node
  *Return: number of nodes in the list
  */
 
-size_t listint_len(const listint_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
 	int element_count = 0;
 

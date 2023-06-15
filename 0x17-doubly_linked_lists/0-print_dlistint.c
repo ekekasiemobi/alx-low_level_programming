@@ -1,10 +1,10 @@
 #include "lists.h"
 /**
- * print_listint - prints all the elements of a doubly linked_list
+ * print_dlistint - prints all the elements of a doubly linked_list
  * @h: a node
  * Return: No of nodes counted
  */
-size_t print_listint(const listint_t *h)
+size_t print_dlistint(const dlistint_t *h)
 {
 	int element_count = 0;
 
