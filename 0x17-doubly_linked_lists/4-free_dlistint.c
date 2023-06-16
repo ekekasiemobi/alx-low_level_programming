@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * free_listint - frees a doubly linked list
+ * free_dlistint - frees a doubly linked list
  * @head: points to the beginning of the list
  *
  */
