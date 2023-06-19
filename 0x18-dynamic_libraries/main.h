@@ -1,9 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-#include "stdio.h"
-#include "stdlib.h"
-
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
@@ -24,5 +20,24 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
+#endif /* MAINT_H */
 
-#endif /*MAIN_H*/
+/**
+ * _strlen - prints the length of a string
+ * @s: character
+ *
+ * Return: 0 (success)
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+}
