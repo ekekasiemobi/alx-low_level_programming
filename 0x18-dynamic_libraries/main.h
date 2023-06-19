@@ -21,23 +21,3 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 #endif /* MAINT_H */
-
-/**
- * _strlen - prints the length of a string
- * @s: character
- *
- * Return: 0 (success)
- */
-int _strlen(char *s)
-{
-	int i;
-
-	i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
-}
