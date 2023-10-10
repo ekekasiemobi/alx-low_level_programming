@@ -1,6 +1,6 @@
 #include "search_algos.h"
 /**
- * linear_search - searches to find value in array and return the index
+ * binary_search - searches to find value in array and return the index
  * @array: array to search for the value
  * @size: size of array searched from
  * @value: value to search for in the array
